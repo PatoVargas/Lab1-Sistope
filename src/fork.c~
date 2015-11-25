@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+main (void){
+	int pid,i,j;
+	for(i=0;i<5;i++)
+		for(j=0;j<5;j++)
+			if((pid=fork()) == 0) break;
+	printf("Hola Mundo!\n");
+}

@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+	char comando[20];
+	FILE *archivo;
+	int n,m;
+	while(strncmp("exit\n",comando,5) != 0){	
+		fgets(comando, 20, stdin);		
+		if(strncmp("load A",comando,6) == 0){
+			char caracter;
+			char fichero[7];
+			int i;			
+			for(i=0;i<8;i++){	
+				fichero[i]=comando[(7+i)];
+				printf("%s",fichero); 
+			}
+			
+			printf("HOLA\n");
+			archivo = fopen ( fichero, "r" );
+			if (archivo==NULL){
+				fputs("no existe tal matriz\n",stderr); 
+				exit (1);
+			}
+			else{
+				int aux = 0;
+				printf("\nEl contenido del archivo es \n\n");
+	
+	    			while (feof(archivo) == 0){
+					caracter = fgetc(archivo);
+					printf("%c",caracter);
+					if(aux == 0){
+						n = atoi(&caracter);
+						aux++;
+					}
+					else if(aux == 1 ){
+						m = atoi(&caracter);						
+						aux++;
+					}
+				}
+				printf("%i %i",n,m);
+			}
+			fclose ( archivo );		
+		}
+		else if(strncmp("save A",comando,6) == 0){
+			printf("%s",comando);		
+		}
+		else if(strncmp("print A\n",comando,8) == 0){
+			printf("%s",comando);		
+		}
+		else if(strncmp("clear A\n",comando,8) == 0){
+			printf("%s",comando);		
+		}
+		else if(strncmp("A = B\n",comando,6) == 0){
+			printf("%s",comando);		
+		}
+		else if(strncmp("A=A+B\n",comando,6) == 0){
+			printf("%s",comando);
+			int pid = fork();
+			if(pid==0){ //Hijo si pid es 0
+				printf("soy el hijo\n");
+			}
+			else{ //Si el pid no es 0, entonces es el Padre
+				printf("soy el padre\n");
+			}
+		}
+		else if(strncmp("exit\n",comando,5) == 0){		
+		}
+		else{
+			printf("comando incorrecto\n");		
+		}
+	}      
+	return 0;
+}
