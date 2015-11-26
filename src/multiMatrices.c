@@ -50,7 +50,7 @@ int main(){
 	int matriz_resultante[n][m];
 
 	rellenarCeros(matriz_resultante);
-	sumaMatrices(matriz,matriz2,matriz_resultante);
+	multiMatrices(matriz,matriz2,matriz_resultante);
 
 	imprimirMatriz(matriz_resultante);
 	return 0;
