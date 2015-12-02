@@ -365,6 +365,8 @@ void rellenarMatriz(char *nombre, int indiceLocal){
         fclose(file);
     }
 }
+
+
 //Funcion para imprimir la matriz
 void imprimir(int indiceLocal){
 	int i,j;
