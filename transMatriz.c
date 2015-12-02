@@ -33,11 +33,11 @@ int main(int argc, char const *argv[]){
 		resultado.mlocal = arregloDeMatriz[0].nlocal;
 		resultado.estado = 1;
 		resultado.matriz = (int**)(malloc( sizeof(int*) * resultado.nlocal));
-        for (i=0;i<resultado.mlocal;i++){
+        for (i=0;i<resultado.nlocal;i++){
              resultado.matriz[i] = (int*)( malloc( sizeof(int) * resultado.mlocal));
         }
-		for(i=0;i<resultado.mlocal;i++){
-			for(j=0;j<resultado.nlocal;j++){
+		for(i=0;i<resultado.nlocal;i++){
+			for(j=0;j<resultado.mlocal;j++){
 				resultado.matriz[i][j] = arregloDeMatriz[0].matriz[j][i];
 			}
 		}
